@@ -140,10 +140,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-<<<<<<< HEAD
-=======
   bcrypt (~> 3.1.7)
->>>>>>> 55eba6d69c4bb7cd674660c28c77e33bb4dda334
   byebug
   coffee-rails (~> 4.1.0)
   jbuilder (~> 2.0)
