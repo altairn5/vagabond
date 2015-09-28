@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root to: "users#index"
 
+  # get '/sign_up', to "users#new"
+
   resources :users
 
   # The priority is based upon order of creation: first created -> highest priority.
