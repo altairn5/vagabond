@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   get "sessions/destroy", to: "sessions#destroy"
 
-  root to: "users#index"
+  root to: "users#welcome"
 
   # get '/sign_up', to "users#new"
 

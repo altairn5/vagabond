@@ -26,6 +26,7 @@ class UsersController < ApplicationController
   def update
   end
 
-
+  def welcome
+  end
 
 end
