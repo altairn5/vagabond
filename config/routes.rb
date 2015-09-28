@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   get 'cities/index'
 
   get 'cities/new'
@@ -12,6 +13,8 @@ Rails.application.routes.draw do
   get 'cities/edit'
 
   get 'cities/update'
+  
+  root to: "users#welcome"
 
   get "/sign_in", to: "sessions#new"
 
@@ -19,9 +22,7 @@ Rails.application.routes.draw do
 
   delete "/sessions/destroy", to: "sessions#destroy"
 
-  root to: "users#index"
-
-  # get '/sign_up', to "users#new"
+  get "/sign_up", to: "users#new"
 
   resources :users
 
