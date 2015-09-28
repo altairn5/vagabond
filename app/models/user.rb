@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+	belongs_to :city
 
 	validates :first_name, :last_name, :email, :password_digest, presence: true, confirmation: true
 	validates :email, uniqueness: true

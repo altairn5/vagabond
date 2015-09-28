@@ -2,4 +2,4 @@
 
 <p>Welcome, <%= @user.first_name %>! </p>
 <p>You signed up on <%= @user.created_at.to_formatted_s(:long_ordinal) %> </p>
-<p>Your default city is San Francisco. </p>
+<p>Your default city is  <%= @user.cities_id %>   </p>
