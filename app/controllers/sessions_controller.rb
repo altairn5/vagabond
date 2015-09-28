@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+
   def new
   	@user = User.new
   	render :new 
@@ -12,7 +13,6 @@ class SessionsController < ApplicationController
   	else
   		redirect_to sign_in_path
   	end
-
   end
 
   def destroy
