@@ -1,3 +1,14 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.welcome {
+	background-image: image-url("3765c625.jpeg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 100%
+}
+
+.welcome-text {
+	font-size: 75px;
+}
