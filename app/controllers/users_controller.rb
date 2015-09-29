@@ -13,6 +13,7 @@ class UsersController < ApplicationController
     @user = User.create(user_params)
     session[:user_id] = @user.id
     @current_user = @user
+    binding.pry
     redirect_to "/users/#{@user.id}"
   end
 
