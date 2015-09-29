@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+
+  before_action :logged_in?, only: [:show]
+
   def index
   end
 
@@ -15,8 +18,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
-    render :show
+    @user = User.find_by_id(params[:id])
   end
 
   def destroy
