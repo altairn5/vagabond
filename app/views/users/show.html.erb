@@ -3,3 +3,10 @@
 <p>Welcome, <%= @user.first_name %>! </p>
 <p>You signed up on <%= @user.created_at.to_formatted_s(:long_ordinal) %> </p>
 <p>Your default city is  <%= @user.cities_id %>   </p>
+<div>
+	All of your posts: 
+	<% @posts.each do |post| %>
+		<h3> <%= post.title %> </h3>
+		<p> <%= post.body %> </p>
+	<% end %>
+</div>
