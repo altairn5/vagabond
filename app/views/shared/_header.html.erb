@@ -1,6 +1,5 @@
 <% if signed_in? %>
 	<%= link_to "Log Out", "/sign_out" %>
-	<%= link_to "Update Profile", edit_user_path%>
 <% else %>
 	<%= link_to "Log In", "/sign_in" %>
 	<%= link_to "Sign Up", "/sign_up" %>
