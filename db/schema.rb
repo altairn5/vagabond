@@ -29,8 +29,9 @@ ActiveRecord::Schema.define(version: 20150929001438) do
     t.string   "last_name"
     t.string   "email"
     t.string   "password_digest"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.integer  "cities_id",       default: 1
   end
 
 end
