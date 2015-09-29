@@ -1,5 +1,7 @@
-# cities = City.create([{ name: 'San Francisco' }, { name: 'London' }, {name: 'Gibraltar'}])
 require 'ffaker'
+
+User.destroy_all
+City.destroy_all
 
 10.times do
 
@@ -28,4 +30,4 @@ require 'ffaker'
 
 end
 
-
+cities = City.create([{ name: 'San Francisco' }, { name: 'London' }, {name: 'Gibraltar'}])
