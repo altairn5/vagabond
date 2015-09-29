@@ -19,6 +19,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find_by_id(params[:id])
     @posts = @user.posts
+    @city = City.find_by_id(@user.cities_id)
   end
 
   def destroy
