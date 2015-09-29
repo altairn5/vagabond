@@ -1,0 +1,6 @@
+<% if signed_in? %>
+	<%= link_to "Log Out", "/sign_out" %>
+<% else %>
+	<%= link_to "Log In", "/sign_in" %>
+	<%= link_to "Sign Up", "/sign_up" %>
+<% end %>
