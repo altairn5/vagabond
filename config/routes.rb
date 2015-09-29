@@ -1,18 +1,4 @@
 Rails.application.routes.draw do
-
-  get 'cities/index'
-
-  get 'cities/new'
-
-  get 'cities/create'
-
-  get 'cities/show'
-
-  get 'cities/destroy'
-
-  get 'cities/edit'
-
-  get 'cities/update'
   
   root to: "users#welcome"
 
@@ -25,5 +11,7 @@ Rails.application.routes.draw do
   get "/sign_up", to: "users#new"
 
   resources :users
+
+  resources :cities
 
 end
