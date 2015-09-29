@@ -1,3 +1,8 @@
 <div class="sanFran">
 <h1>Welcome To, <%= @city.name %>! </h1>
+
+<h3>Posts</h3>
+
+<% @posts.each do |post| %>
+		<h3> <%= post.title %> </h3>
 </div>
