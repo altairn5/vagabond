@@ -10,5 +10,13 @@ Rails.application.routes.draw do
 
   get "/sign_up", to: "users#new"
 
-  resources :users, :posts, :cities
+  resources :cities do
+  	resources :posts
+  end
+
+  resources :users do
+	resources :posts
+  end
+
 end
+
