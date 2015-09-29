@@ -9,6 +9,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find_by_id(params[:id])
     @user = User.find_by_id(@post.user_id)
+    @city = City.find_by_id(@post.city_id)
   end
 
   def create
@@ -16,7 +17,7 @@ class PostsController < ApplicationController
     # redirect_to city_posts_path(@post.id)
     binding.pry
     @city = City.find_by_id(@post.city_id) 
-    redirect_to "/city/#{@city.id}/posts/#{@post.id}"
+    redirect_to "/cities/#{@city.id}/posts/#{@post.id}"
   end
 
   def destroy
