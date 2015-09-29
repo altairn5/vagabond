@@ -1,9 +1,9 @@
 class PostsController < ApplicationController
   def new
-    @post = Post.new
+    @posts = Post.new
 
     @current_user = current_user
-    @city_id = params[:city_id]
+    @city = City.find_by_id(params[:city_id])
   end
 
   def show
@@ -13,7 +13,10 @@ class PostsController < ApplicationController
 
   def create
     @post= Post.create(post_params)
-    redirect_to city_post_path(@post.id)
+    # redirect_to city_posts_path(@post.id)
+    binding.pry
+    @city = City.find_by_id(@post.city_id) 
+    redirect_to "/city/#{@city.id}/posts/#{@post.id}"
   end
 
   def destroy
@@ -29,7 +32,7 @@ class PostsController < ApplicationController
   end
   private
   def post_params
-    params.require(:post).permit(:title, :body, :city_id)
+    params.require(:post).permit(:title, :body, :city_id, :user_id)
   end
   
 end
