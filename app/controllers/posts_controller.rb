@@ -19,6 +19,11 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    @post = Post.find_by_id(params[:id])
+    @post.destroy
+    @city = City.find_by_id(params[:city_id])
+
+    redirect_to "/cities/#{@city.id}"
   end
 
   def edit
@@ -37,6 +42,7 @@ class PostsController < ApplicationController
 
   def index
   end
+
   private
   def post_params
     params.require(:post).permit(:title, :body, :city_id, :user_id)
