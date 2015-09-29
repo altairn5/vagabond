@@ -1,2 +1,10 @@
-<h1>Cities#show</h1>
-<p>Find me in app/views/cities/show.html.erb</p>
+<div class="sanFran">
+<h1>Welcome To, <%= @city.name %>! </h1>
+
+<h3>Posts</h3>
+
+	<% @allPosts.each do |post| %>
+		<h5> <%= link_to post.title, '/posts/' + post.id.to_s%> </h5>
+	<% end %>
+
+</div>
