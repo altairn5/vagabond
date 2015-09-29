@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20150929175554) do
     t.string   "password_digest"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
-    t.integer  "city_id",         default: 1
+    t.integer  "city_id",  default: 1
   end
 
 end
