@@ -1,2 +1,8 @@
-<h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
+<h1>Creater New Post</h1>
+<p><%=form_for @posts, url:'/cities/:city_id/posts/' do |p|%></p>
+<%=p.text_field :title, placeholder: "Title", required: true%>
+<%=p.text_field :body, placeholder: "Body", required: true%>
+<%=p.hidden_field :city_id, value: @city.id %>
+<%=p.hidden_field :user_id, value: @current_user.id %>
+<%=p.submit "Create Post"%>
+<%end%>
