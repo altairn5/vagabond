@@ -11,7 +11,7 @@ class CitiesController < ApplicationController
 
   def show
     @city = City.find(params[:id])
-    
+    @allPosts = Post.all.order(created_at: :desc)
   end
 
   def destroy

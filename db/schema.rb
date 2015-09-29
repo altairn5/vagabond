@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20150929175554) do
   end
 
   create_table "city_users", force: :cascade do |t|
-    t.integer  "cities_id"
+    t.integer  "city_id"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20150929175554) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "cities_id"
+    t.integer  "city_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -45,8 +45,7 @@ ActiveRecord::Schema.define(version: 20150929175554) do
     t.string   "password_digest"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
-    t.integer  "city_id",  default: 1
-
+    t.integer  "city_id",         default: 1
   end
 
 end
