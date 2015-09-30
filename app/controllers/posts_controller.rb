@@ -1,4 +1,7 @@
 class PostsController < ApplicationController
+
+  before_action :logged_in?, only: [:new, :create, :destroy, :edit, :update]
+
   def new
     @post = Post.new
     @current_user = current_user
@@ -12,10 +15,14 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post= Post.create(post_params)
-    # redirect_to city_posts_path(@post.id)
-    @city = City.find_by_id(@post.city_id) 
-    redirect_to "/cities/#{@city.id}/posts/#{@post.id}"
+    @post = Post.new(post_params)
+    @city = City.find_by_id(params[:city_id])
+    if @post.save
+      redirect_to "/cities/#{@city.id}/posts/#{@post.id}"
+    else
+      binding.pry
+      render :new
+    end
   end
 
   def destroy

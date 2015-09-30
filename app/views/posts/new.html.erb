@@ -1,8 +1,14 @@
 <h1>Create New Post</h1>
-<p><%=form_for @post, url:'/cities/:city_id/posts/' do |p|%></p>
-<%=p.text_field :title, placeholder: "Title", required: true%>
-<%=p.text_field :body, placeholder: "Body", required: true%>
-<%=p.hidden_field :city_id, value: @city.id %>
-<%=p.hidden_field :user_id, value: @current_user.id %>
-<%=p.submit "Create Post"%>
+<p><%=form_for @post, url: city_posts_path do |p|%></p>
+	<% if @post.errors.any? %>
+		<h3>Errors:</h3>
+			<% @post.errors.full_messages.each do |message| %>
+				<h5><%= message %></h5>
+			<% end %>
+	<% end %>
+	<%=p.text_field :title, placeholder: "Title", required: true%>
+	<%=p.text_field :body, placeholder: "Body", required: true%>
+	<%=p.hidden_field :city_id, value: @city.id %>
+	<%=p.hidden_field :user_id, value: @current_user.id %>
+	<%=p.submit "Create Post"%>
 <%end%>
