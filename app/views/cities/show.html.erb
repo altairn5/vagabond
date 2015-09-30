@@ -4,7 +4,7 @@
 <h3>Posts</h3>
 
 	<% @allPosts.each do |post| %>
-		<h5> <%= image_tag("vista.jpeg", :alt => "scenic vista") %> <%= link_to post.title, '/posts/' + post.id.to_s%> </h5>
+		<h5> <%= image_tag("vista.jpeg", :alt => "scenic vista") %> <%= link_to post.title, '/posts/' + post.id.to_s%></h5>
 	<% end %>
 
 </div>
