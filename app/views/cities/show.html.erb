@@ -2,7 +2,7 @@
 <h1>Welcome To, <%= @city.name %>! </h1>
 
 <h3>Posts</h3>
-
+<%= button_to "Create Post", new_city_post_path(@city.id), method: :get %>
 	<% @allPosts.each do |post| %>
 		<h5> <%= image_tag("vista.jpeg", :alt => "scenic vista") %> <%= link_to post.title, city_post_path(@city.id, post.id) %> </h5>
 	<% end %>
