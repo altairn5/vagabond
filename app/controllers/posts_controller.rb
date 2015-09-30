@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   
-  before_action :if_right_user, only: [:new, :create, :destroy, :edit, :update]
+  before_action :if_right_user, except: [:show]
 
   def if_right_user
     @current_user = exactUser
