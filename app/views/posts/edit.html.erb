@@ -1,8 +1,10 @@
-<h1>Edit Post</h1>
-<p><%=form_for @post, url: city_post_path, method: :put do |p|%></p>
-<%=p.text_field :title, placeholder: "Title", required: true%>
-<%=p.text_field :body, placeholder: "Body", required: true%>
-<%=p.hidden_field :city_id, value: @city.id %>
-<%=p.hidden_field :user_id, value: @current_user.id %>
-<%=p.submit "Edit Post"%>
-<%end%>
+<div class="container">
+	<h1>Edit Post</h1>
+	<p><%=form_for @post, url: city_post_path, method: :put do |p|%></p>
+		<%=p.text_field :title, placeholder: "Title", required: true%>
+		<%=p.text_field :body, placeholder: "Body", required: true%>
+		<%=p.hidden_field :city_id, value: @city.id %>
+		<%=p.hidden_field :user_id, value: @current_user.id %>
+		<%=p.submit "Edit Post"%>
+	<%end%>
+</div>
