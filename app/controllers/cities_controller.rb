@@ -11,7 +11,7 @@ class CitiesController < ApplicationController
 
   def show
     @city = City.find(params[:id])
-    @allPosts = Post.all.order(created_at: :desc)
+    @allPosts = Post.order(created_at: :desc).where(["city_id = #{@city.id}"]).limit(10)
     @length = 1000
   end
 
