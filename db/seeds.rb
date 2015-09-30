@@ -1,5 +1,7 @@
-# cities = City.create([{ name: 'San Francisco' }, { name: 'London' }, {name: 'Gibraltar'}])
 require 'ffaker'
+
+User.destroy_all
+City.destroy_all
 
 10.times do
 
@@ -11,7 +13,7 @@ require 'ffaker'
   user_params[:email_confirmation] = user_params[:email]
   user_params[:password]  = "123456"
   user_params[:password_confirmation] = user_params[:password]
-  user_params[:cities_id] = 1
+  user_params[:city_id] = 1
   # save the user
   new_user = User.create(user_params)
 
@@ -28,4 +30,4 @@ require 'ffaker'
 
 end
 
-
+cities = City.create([{ name: 'San Francisco' }, { name: 'London' }, {name: 'Gibraltar'}])

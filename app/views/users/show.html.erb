@@ -1,12 +1,13 @@
 <h1>Your Account</h1>
 
 <p>Welcome, <%= @user.first_name %>! </p>
+<%= image_tag("vista.jpeg", :alt => "scenic vista") %>
 <p>You signed up on <%= @user.created_at.to_formatted_s(:long_ordinal) %> </p>
-<p>Your default city is  <%= @user.cities_id %>   </p>
+<p>Your default city is  <%= @city.name %>.  </p>
+<%= link_to "Update Profile", edit_user_path%><br><br>
 <div>
 	All of your posts: 
 	<% @posts.each do |post| %>
-		<h3> <%= post.title %> </h3>
-		<p> <%= post.body %> </p>
+		<h3> <%= link_to post.title, '/posts/' + post.id.to_s%> </h3>
 	<% end %>
 </div>
