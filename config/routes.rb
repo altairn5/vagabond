@@ -20,9 +20,7 @@ Rails.application.routes.draw do
   	resources :posts
   end
 
-  resources :users do
-	resources :posts ,only: :show
-  end
+  resources :users
 
 end
 
