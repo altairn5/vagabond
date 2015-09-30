@@ -37,6 +37,9 @@ class UsersController < ApplicationController
   end
 
   def welcome
+    @sfPosts = Post.all.where(:city_id => 1).length
+    @londonPosts = Post.all.where(:city_id => 2).length
+    @GPosts = Post.all.where(:city_id => 3).length
   end
 
   private
