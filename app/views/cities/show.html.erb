@@ -1,5 +1,5 @@
-<div class="sanFran">
-<h1>Welcome To, <%= @city.name %>! </h1>
+<div class="container">
+<h1>Welcome to <%= @city.name %>! </h1>
 
 <h3>Posts</h3>
 <%= button_to "Create Post", new_city_post_path(@city.id), method: :get %>
