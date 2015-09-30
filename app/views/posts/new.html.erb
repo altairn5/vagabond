@@ -6,8 +6,8 @@
 				<h5><%= message %></h5>
 			<% end %>
 	<% end %>
-	<%=p.text_field :title, placeholder: "Title", required: true%>
-	<%=p.text_field :body, placeholder: "Body", required: true%>
+	<%=p.text_field :title, placeholder: "Title", required: true%><br>
+	<%=p.text_field :body, placeholder: "Body", required: true%><br>
 	<%=p.hidden_field :city_id, value: @city.id %>
 	<%=p.hidden_field :user_id, value: @current_user.id %>
 	<%=p.submit "Create Post"%>

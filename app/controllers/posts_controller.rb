@@ -20,7 +20,6 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to "/cities/#{@city.id}/posts/#{@post.id}"
     else
-      binding.pry
       render :new
     end
   end
