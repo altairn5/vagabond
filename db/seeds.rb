@@ -20,6 +20,7 @@ City.destroy_all
   # create 10 articles for each user
   5.times do
     new_post = Post.new
+    new_post.city_id = rand(1..3)
     new_post.title = FFaker::BaconIpsum.words(rand(8)+2).join(" ")
     new_post.body = FFaker::BaconIpsum.paragraphs(1+ rand(4)).join("\n")
     # save the article
