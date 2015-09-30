@@ -1,14 +1,18 @@
-<h1>Your Account</h1>
+<div class="container">
+	<h1>Your Account</h1>
 
-<p>Welcome, <%= @user.first_name %>! </p>
-<%= image_tag("vista.jpeg", :alt => "scenic vista") %>
-<p>You signed up on <%= @user.created_at.to_formatted_s(:long_ordinal) %> </p>
-<p>Your default city is  <%= @city.name %>.  </p>
-<p><%= link_to "Add a post", root_path%></p>
-<%= link_to "Update Profile", edit_user_path%><br><br>
-<div>
-	All of your posts: 
-	<% @posts.each do |post| %>
-		<h3> <%= link_to post.title, '/posts/' + post.id.to_s%> </h3>
-	<% end %>
+	<div class="user-image"><%= image_tag("vista.jpeg", :alt => "scenic vista") %></div>
+	<p class="lead">Welcome, <%= @user.first_name %>! </p>
+	<div class="clear"></div>
+	<br>
+	<p>You signed up on <%= @user.created_at.to_formatted_s(:long_ordinal) %> </p>
+	<p>Your default city is  <%= @city.name %>.  </p>
+	<p><%= link_to "Add a post", root_path%></p>
+	<%= link_to "Update Profile", edit_user_path%><br><br>
+	<div>
+		All of your posts: 
+		<% @posts.each do |post| %>
+			<h3> <%= link_to post.title, '/posts/' + post.id.to_s%> </h3>
+		<% end %>
+	</div>
 </div>
