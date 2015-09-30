@@ -1,5 +1,6 @@
 <h1> <%= @post.title %> </h1>
 <h2>in <%= @city.name %> </h2>
+<h4> Posted <%= time_ago_in_words(@rel_date) %> ago! </h4>
 <h2>by <%= @user.first_name %></h2><br>
 <p><%= @post.body %></p>
 <%= link_to "Edit Post", edit_city_post_path %>
