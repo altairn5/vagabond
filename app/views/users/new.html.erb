@@ -1,12 +1,27 @@
-<div class="container">
-	<h1>Sign Up</h1>
-	<%= form_for @user do |f| %>
-		<%= f.text_field :first_name, placeholder: "First Name", required: true %><br>
-		<%= f.text_field :last_name, placeholder: "Last_Name", required: true %><br>
-		<%= f.email_field :email, placeholder: "Email", required: true %><br>
-		<%= f.email_field :email_confirmation, placeholder: "Email Confirmation", required: true %><br>
-		<%= f.password_field :password, placeholder: "Password", required: true %><br>
-		<%= f.password_field :password_confirmation, placeholder: "Password Confirmation", required: true %><br>
-		<%= f.submit "Sign Up" %><br>
-	<% end %>
-</div>
+<body class="welcome"
+	<div class="container">
+		<div class="row emailWidth">
+        	<div class="col-md-12">
+            	<div class="wrap">
+                	<p class="form-title">
+	                    Sign Up</p>	
+							<%= form_for @user, :html => {:class => "loginForm"} do |f| %>
+								<% if @user.errors.any? %>
+									<h3>Errors:</h3>
+										<% @user.errors.full_messages.each do |message| %>
+											<h5><%= message %></h5>
+										<% end %>
+								<% end %>
+								<%= f.text_field :first_name, placeholder: "First Name", required: true, class: "emailSpace" %><br>
+								<%= f.text_field :last_name, placeholder: "Last_Name", required: true, class: "emailSpace" %><br>
+								<%= f.email_field :email, placeholder: "Email", required: true, class: "emailSpace" %><br>
+								<%= f.email_field :email_confirmation, placeholder: "Email Confirmation", required: true, class: "emailSpace" %><br>
+								<%= f.password_field :password, placeholder: "Password", required: true, class: "emailSpace" %><br>
+								<%= f.password_field :password_confirmation, placeholder: "Password Confirmation", required: true, class: "emailSpace" %><br>
+								<%= f.submit "Sign Up", class: "signInButton" %><br>
+							<% end %>
+				</div>
+     		</div>
+    	</div>
+	</div>
+</body>

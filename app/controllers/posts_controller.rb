@@ -3,13 +3,17 @@ class PostsController < ApplicationController
     @post = Post.new
     @current_user = current_user
     @city = City.find_by_id(params[:city_id])
+    if @current_user 
+      render :new
+    else
+    redirect_to sign_in_path
+  end
   end
 
   def show
     @post = Post.find_by_id(params[:id])
     @user = User.find_by_id(@post.user_id)
     @city = City.find_by_id(params[:city_id])
-    @rel_date = Post.find_by_id(params[:id]).created_at
   end
 
   def create

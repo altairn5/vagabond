@@ -1,15 +1,17 @@
-<div class="sanFran">
-<h1>Welcome To, <%= @city.name %>! </h1>
+<div class="container">
+<h1>Welcome to <%= @city.name %>! </h1>
 
 <h3>Posts</h3>
 <%= button_to "Create Post", new_city_post_path(@city.id), method: :get %>
-	<% 10.times do |i| %>
-		<h5> <%= image_tag("vista.jpeg", :alt => "scenic vista") %> <%= link_to @allPosts[i].title, city_post_path(@city.id, @allPosts[i].id) %> <br>
-			<%= truncate(@allPosts[i].body, length: 1000) %>
-			<% if truncate?(@allPosts[i].body) %>
-				<%= link_to "Read More", city_post_path(@city.id, @allPosts[i].id) %>
+	<% @allPosts.each do |post| %>
+		<h5> <%= image_tag("vista.jpeg", :alt => "scenic vista") %> <%= link_to post.title, city_post_path(@city.id, post.id) %> <br>
+			<h4> Posted <%= time_ago_in_words(relative_time(post)) %> ago! </h4>
+			<%= truncate(post.body, length: @length) %>
+			<% if truncate?(post.body) %>
+				<%= link_to "Read More", city_post_path(@city.id, post.id) %>
 			<% end %>
 			</h5>
+			<br><br>
 	<% end %>
 
 </div>
