@@ -16,6 +16,8 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 # ffaker for seeding data
 gem 'ffaker', '~> 2.1.0'
+# dynamicform for generating error messages
+gem 'dynamic_form'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

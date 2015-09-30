@@ -10,10 +10,13 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create(user_params)
-    session[:user_id] = @user.id
-    @current_user = @user
-    redirect_to "/users/#{@user.id}"
+    @user = User.new(user_params)
+    if @user.save
+      login(@user)
+      redirect_to "/users/#{@user.id}"
+    else
+      render :new
+    end
   end
 
   def show
