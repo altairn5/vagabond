@@ -15,6 +15,8 @@
                 <% if signed_in? %>
 					<li><%= link_to "Log Out", "/sign_out" %></li> 
                     <li><%= link_to "Home", "/" %></li>
+                        <% @current_user = current_user %>
+                    <li><%= link_to "User", "/users/#{@current_user.id}" %></li>
 				<% else %>
 					<li><%= link_to "Log In", "/sign_in" %></li>
 					<li><%= link_to "Sign Up", "/sign_up" %></li>
