@@ -2,5 +2,10 @@
 <h2>in <%= @city.name %> </h2>
 <h2>by <%= @user.first_name %></h2><br>
 <p><%= @post.body %></p>
-<%= button_to "Edit Post", edit_city_post_path, method: :get %>
-<%= button_to "Delete Post", city_post_path, method: :delete, data: {confirm: "Are you sure?"} %>
+
+<!-- Do a quick check here to see if @user == @current_user -->
+
+<% if @current_user == @user %>
+	<%= button_to "Edit Post", edit_city_post_path, method: :get %>
+	<%= button_to "Delete Post", city_post_path, method: :delete, data: {confirm: "Are you sure?"} %>
+	<%end%>
