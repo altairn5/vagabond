@@ -1,4 +1,15 @@
 class PostsController < ApplicationController
+  
+  before_action :if_right_user, only: [:destroy, :edit, :update]
+
+  def if_right_user
+    @current_user = exactUser
+    
+    if @current_user = !@current_user
+      redirect_to "/sign_in"
+    end  
+  end
+
   def new
     @post = Post.new
     @current_user = current_user
@@ -6,9 +17,15 @@ class PostsController < ApplicationController
   end
 
   def show
+    # this post
     @post = Post.find_by_id(params[:id])
+    # user for this above post
     @user = User.find_by_id(@post.user_id)
+    # city this post belongs to
     @city = City.find_by_id(params[:city_id])
+    # this current user accessing this site
+    @current_user = current_user
+
   end
 
   def create
@@ -22,7 +39,7 @@ class PostsController < ApplicationController
     @post = Post.find_by_id(params[:id])
     @post.destroy
     @city = City.find_by_id(params[:city_id])
-
+    
     redirect_to "/cities/#{@city.id}"
   end
 
@@ -30,6 +47,8 @@ class PostsController < ApplicationController
     @post = Post.find_by_id(params[:id])
     @current_user = current_user
     @city = City.find_by_id(params[:city_id])
+    
+    
   end
 
   def update
