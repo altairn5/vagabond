@@ -4,7 +4,12 @@
 <h3>Posts</h3>
 <%= button_to "Create Post", new_city_post_path(@city.id), method: :get %>
 	<% 10.times do |i| %>
-		<h5> <%= image_tag("vista.jpeg", :alt => "scenic vista") %> <%= link_to @allPosts[i].title, city_post_path(@city.id, @allPosts[i].id) %> </h5>
+		<h5> <%= image_tag("vista.jpeg", :alt => "scenic vista") %> <%= link_to @allPosts[i].title, city_post_path(@city.id, @allPosts[i].id) %> <br>
+			<%= truncate(@allPosts[i].body, length: 1000) %>
+			<% if truncate?(@allPosts[i].body) %>
+				<%= link_to "Read More", city_post_path(@city.id, @allPosts[i].id) %>
+			<% end %>
+			</h5>
 	<% end %>
 
 </div>
