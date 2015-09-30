@@ -1,5 +1,6 @@
 class CitiesController < ApplicationController
   def index
+    redirect_to "/"
   end
 
   def new
@@ -13,6 +14,7 @@ class CitiesController < ApplicationController
     @city = City.find(params[:id])
     @allPosts = Post.all.order(created_at: :desc)
     @length = 1000
+
   end
 
   def destroy
