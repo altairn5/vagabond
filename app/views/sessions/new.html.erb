@@ -1,12 +1,22 @@
+<body class="welcome"
 <div class="container">
-	<h1>Hi</h1>
-	<%= form_for @user, url: "/sessions", method: "post" do |f| %>
-	<div>
-		<%= f.text_field :email, placeholder: "Email" %>
-	</div>
-	<div>
-		<%= f.password_field :password, placeholder: "Password" %>
-	</div>
-	<%= f.submit "Sign In" %>
-	<% end %>
+	<div class="row emailWidth">
+        <div class="col-md-12">
+            <div class="wrap">
+                <p class="form-title">
+                    Sign In</p>	
+						<%= form_for @user, url: "/sessions", method: "post", :html => {:class => "loginForm"} do |f| %>
+						<div>
+							<%= f.text_field :email, placeholder: "Email", class: "emailSpace" %>
+						</div>
+						<div>
+							<%= f.password_field :password, placeholder: "Password", class: "emailSpace" %>
+						</div>
+						
+						<%= f.submit "Sign In", class: "signInButton" %>
+						<% end %>
+ 			</div>
+     	</div>
+    </div>
 </div>
+</body>
