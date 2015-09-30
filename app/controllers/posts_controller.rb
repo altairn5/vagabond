@@ -9,7 +9,6 @@ class PostsController < ApplicationController
     @post = Post.find_by_id(params[:id])
     @user = User.find_by_id(@post.user_id)
     @city = City.find_by_id(params[:city_id])
-    @rel_date = Post.find_by_id(params[:id]).created_at
   end
 
   def create

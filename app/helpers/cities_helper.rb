@@ -1,5 +1,5 @@
 module CitiesHelper
 	def truncate?(text)
-		return text.length > 1000
+		return text.length > @length
 	end
 end
