@@ -29,6 +29,7 @@ class PostsController < ApplicationController
   end
 
   def create
+    @current_user = current_user
     @post = Post.new(post_params)
     @city = City.find_by_id(params[:city_id])
     if @post.save
