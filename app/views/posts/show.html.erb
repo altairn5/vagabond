@@ -27,7 +27,7 @@
 	<% elsif @all_comments.length == 0 %>
 		<h2>Be the First to Comment!</h2>
 	<% end %>
-	<ol>
+	<ol class="comment-ol">
 		<% @all_comments.each do |single_comment| %>
 			<% @comment_user = commentUser(single_comment) %>
 			<li><%= single_comment.created_at.to_formatted_s(:long_ordinal) %><br>
