@@ -1,12 +1,11 @@
 <div class="container">
 	<h1> <%= @post.title %> </h1>
-	<h2>in <%= @city.name %> </h2>
-	<h2>by <%= @user.first_name %></h2><br>
-	<p><%= @post.body %></p>
+	<h2>by <%= @user.first_name %> <small>in <%= @city.name %></small> </h2><br>
+	<h4><%= @post.body %></h4>
 
 	<!-- Do a quick check here to see if @user == @current_user -->
 
-	<% if @current_user == @user %>
+	<% if signed_in? %>
 		<%= button_to "Edit Post", edit_city_post_path, method: :get %>
 		<%= button_to "Delete Post", city_post_path, method: :delete, data: {confirm: "Are you sure?"} %>
 	<%end%>
@@ -21,18 +20,18 @@
 		<br>
 	<% end %>
 	<% if @all_comments.length > 1 %>
-		<h2>Comments (<%= @all_comments.length %>): </h2>
+		<h3>Comments (<%= @all_comments.length %>): </h3>
 	<% elsif @all_comments.length == 1 %>
-		<h2>Comment (<%= @all_comments.length %>): </h2>
+		<h3>Comment (<%= @all_comments.length %>): </h3>
 	<% elsif @all_comments.length == 0 %>
-		<h2>Be the First to Comment!</h2>
+		<h3>Be the First to Comment!</h3>
 	<% end %>
 	<ol class="comment-ol">
 		<% @all_comments.each do |single_comment| %>
-			<% @comment_user = commentUser(single_comment) %>
+			<h4><% @comment_user = commentUser(single_comment) %>
 			<li><%= single_comment.created_at.to_formatted_s(:long_ordinal) %><br>
 				<strong>by <%= @comment_user.first_name %></strong><br>
-				<%= single_comment.body %></li><br>
+				<%= single_comment.body %></li><br></h4>
 		<% end %>
 	</ol>
 </div>
