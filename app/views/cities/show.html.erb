@@ -7,12 +7,15 @@
                 <div class="site-heading">
 					<h1>Welcome to <%= @city.name %>! </h1>
 					<hr class="small">
-                    <span class="subheading">Tell us what you think <%= button_to "Create Post", new_city_post_path(@city.id), method: :get %></span>
+					<% if signed_in? %>
+                    	<span class="subheading">Tell us what you think <%= button_to "Create Post", new_city_post_path(@city.id), method: :get %></span>
+                    <% end %>
                 </div>
             </div>
         </div>
     </div>
 </header>	
+<br>
 <%= image_tag("#{@city.id}.jpg") %>
 
 			
