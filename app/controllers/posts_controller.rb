@@ -42,8 +42,6 @@ class PostsController < ApplicationController
     @post = Post.find_by_id(params[:id])
     @post.destroy
     @city = City.find_by_id(params[:city_id])
-    @all_comments = Comment.all.where(:post_id => @post.id)
-    @all_comments.destroy
     
     redirect_to "/cities/#{@city.id}"
   end
