@@ -10,7 +10,7 @@
 		</div> <br>
 		<%=p.hidden_field :city_id, value: @city.id %>
 		<%=p.hidden_field :user_id, value: @current_user.id %>
-		<%=p.submit "Edit Post"%>
+		<%=p.submit "Edit Post", class: "btn btn-primary" %>
 	</form>
 	<%end%>
 </div>

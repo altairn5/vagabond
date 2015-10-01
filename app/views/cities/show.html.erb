@@ -11,7 +11,7 @@
 					<hr class="small">
 
 					<% if signed_in? %>
-                    	<h4><span class="subheading">Tell us what you think <%= button_to "Create A Post", new_city_post_path(@city.id), method: :get %></span></h4>
+                    	<h4><span class="subheading">Tell us what you think <%= button_to "Create A Post", new_city_post_path(@city.id), method: :get, class: "btn btn-primary" %></span></h4>
                     <% end %>
                 </div> <br>
                 

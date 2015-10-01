@@ -1,19 +1,26 @@
 <div class="container">
 	<h1> <%= @post.title %> </h1>
 	<h2>by <%= @user.first_name %> <small>in <%= @city.name %></small> </h2><br>
-	<h4><%= @post.body %></h4>
-
-	<!-- Do a quick check here to see if @user == @current_user -->
-
 	<% if signed_in? %>
-		<%= button_to "Edit Post", edit_city_post_path, method: :get %>
-		<%= button_to "Delete Post", city_post_path, method: :delete, data: {confirm: "Are you sure?"} %>
+		<div class="post-buttons">
+			<%= button_to "Edit Post", edit_city_post_path, method: :get, class: "btn btn-primary" %>
+			<%= button_to "Delete Post", city_post_path, method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-primary" %>
+		</div>
+		<br><br>
 	<%end%>
+	<h4><%= @post.body %></h4>
+	<br>
 	<br>
 	<% if signed_in? %>
 		<%= form_for @comment, url: comments_path, method: :post do |f| %>
-			<%= f.text_field :body, placeholder: "Comment", required: true %><br>
-			<%= f.submit "Create Comment" %>
+			<div class="row">
+				<div class="col-md-8">
+					<%= f.text_field :body, placeholder: "Comment", required: true, class: "form-control" %><br>
+				</div>
+				<div class="col-md-4">
+					<%= f.submit "Leave a Comment", class: "btn btn-primary" %>
+				</div>
+			</div>
 			<%= f.hidden_field :user_id, value: @current_user.id %>
 			<%= f.hidden_field :post_id, value: @post.id %>
 		<% end %>
