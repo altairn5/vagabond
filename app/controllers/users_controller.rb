@@ -23,6 +23,11 @@ class UsersController < ApplicationController
     @user = User.find_by_id(params[:id])
     @posts = @user.posts
     @city = City.find_by_id(@user.city_id)
+    @comments = @user.comments
+   
+   
+  
+
   end
 
   def destroy
