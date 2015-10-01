@@ -1,0 +1,22 @@
+<div class="container">
+	<h1 class="form-title">Create a New Post</h1>
+	<p><%=form_for @post, url: city_posts_path do |p|%></p>
+	<form>
+		<% if @post.errors.any? %>
+			<h3>Errors:</h3>
+				<% @post.errors.full_messages.each do |message| %>
+					<h5><%= message %></h5>
+				<% end %>
+		<% end %>
+		<div class="input-group">
+			<%=p.text_field :title, placeholder: "Title", required: true, class: "form-control" %> 
+		</div> <br>
+		<div class="input-group">
+			<%=p.text_area :body, placeholder: "Body", required: true, class: "form-control", cols: 50, rows: 6 %> 
+		</div>
+		<%=p.hidden_field :city_id, value: @city.id %>
+		<%=p.hidden_field :user_id, value: @current_user.id %> <br>
+		<%=p.submit "Create Post", class: "btn btn-primary" %>
+	</form>
+	<%end%>
+</div>

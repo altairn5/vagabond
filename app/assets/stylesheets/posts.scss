@@ -1,0 +1,18 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.field_with_errors input
+{
+    box-shadow: 0px 0px 3px 3px red;
+}
+
+.comment-ol
+{
+	padding-bottom: 55px;
+}
+
+.post-buttons form
+{
+	display: inline-block;
+}

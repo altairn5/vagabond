@@ -1,0 +1,22 @@
+<body class="welcome"
+<div class="container">
+	<div class="row emailWidth">
+        <div class="col-md-12">
+            <div class="wrap">
+                <p class="form-title">
+                    Sign In</p>	
+						<%= form_for @user, url: "/sessions", method: "post", :html => {:class => "loginForm"} do |f| %>
+						<div>
+							<%= f.text_field :email, placeholder: "Email", class: "emailSpace" %>
+						</div>
+						<div>
+							<%= f.password_field :password, placeholder: "Password", class: "emailSpace" %>
+						</div>
+						
+						<%= f.submit "Sign In", class: "signInButton" %>
+						<% end %>
+ 			</div>
+     	</div>
+    </div>
+</div>
+</body>
