@@ -30,8 +30,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # alchemy api sentiment analysis
 # gem 'alchemy-api-rb', :require => 'alchemy_api'
 # typhoeus
-gem "typhoeus"
-gem 'dotenv-rails', :groups => [:development, :test]
+# gem "typhoeus"
+# gem 'dotenv-rails', :groups => [:development, :test]
 
 
 # Use ActiveModel has_secure_password
