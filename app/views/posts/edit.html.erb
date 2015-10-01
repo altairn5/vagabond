@@ -1,10 +1,16 @@
 <div class="container">
-	<h1>Edit Post</h1>
+	<h1 class="form-title">Edit Post</h1>
 	<p><%=form_for @post, url: city_post_path, method: :put do |p|%></p>
-		<%=p.text_field :title, placeholder: "Title", required: true%>
-		<%=p.text_field :body, placeholder: "Body", required: true%>
+	<form>
+		<div class="input-group">
+			<%=p.text_field :title, placeholder: "Title", required: true, class: "form-control" %>
+		</div> <br>
+		<div class="input-group">
+			<%=p.text_area :body, placeholder: "Body", required: true, class: "form-control", cols: 50, rows: 6 %>
+		</div> <br>
 		<%=p.hidden_field :city_id, value: @city.id %>
 		<%=p.hidden_field :user_id, value: @current_user.id %>
 		<%=p.submit "Edit Post"%>
+	</form>
 	<%end%>
 </div>
