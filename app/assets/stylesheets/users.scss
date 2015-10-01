@@ -8,6 +8,17 @@
     margin-right: auto;
 }
 
+.profileImag{
+    background-image: image-url("moon.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100% 
+}
+
+hr{
+  color: #000000  
+}
+
 .welcome {
 	background-image: image-url("3765c625.jpeg");
 	background-size: cover;

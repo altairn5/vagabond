@@ -3,14 +3,14 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .sanFran{
-	background-image: image-url("1.jpg");
-	background-size: cover;
-	background-repeat: no-repeat;
-	height: 100%
+    background-image: image-url("fog.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100% 
 }
 
 
-
+ 
 .cityPostPage {
   font-family: 'Open Sans' , sans-serif;
   
@@ -48,7 +48,7 @@
   margin-bottom: 10px;
 }
 .post-preview > .post-meta {
-  color: #808080;
+  color: #000000;
   font-size: 18px;
   font-style: italic;
   margin-top: 0;
