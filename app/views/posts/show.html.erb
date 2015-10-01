@@ -1,45 +1,48 @@
-<div class="container">
-	<h1> <%= @post.title %> </h1>
-	<h2>by <%= @user.first_name %> <small>in <%= @city.name %></small> </h2><br>
-	<% if signed_in? %>
-		<div class="post-buttons">
-			<%= button_to "Edit Post", edit_city_post_path, method: :get, class: "btn btn-primary" %>
-			<%= button_to "Delete Post", city_post_path, method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-primary" %>
+<body class="postBackground">
+	<div class="container">
+		<div class="postPage">
+			<h1> <%= @post.title %> </h1>
+			<h2>by <%= link_to @user.first_name, user_path(@user.id) %> <small>in <%= @city.name %></small> </h2><br>
+			<% if signed_in? %>
+				<div class="post-buttons">
+					<%= button_to "Edit Post", edit_city_post_path, method: :get, class: "btn btn-primary" %>
+					<%= button_to "Delete Post", city_post_path, method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-primary" %>
+				</div>
+				<br><br>
+			<%end%>
+			<h4><%= @post.body %></h4>
+			<br>
+			<br>
+			<% if signed_in? %>
+				<%= form_for @comment, url: comments_path, method: :post do |f| %>
+					<div class="row">
+						<div class="col-md-8">
+							<%= f.text_field :body, placeholder: "Comment", required: true, class: "form-control" %><br>
+						</div>
+						<div class="col-md-4">
+							<%= f.submit "Leave a Comment", class: "btn btn-primary" %>
+						</div>
+					</div>
+					<%= f.hidden_field :user_id, value: @current_user.id %>
+					<%= f.hidden_field :post_id, value: @post.id %>
+				<% end %>
+				<br>
+			<% end %>
+			<% if @all_comments.length > 1 %>
+				<h3>Comments (<%= @all_comments.length %>): </h3>
+			<% elsif @all_comments.length == 1 %>
+				<h3>Comment (<%= @all_comments.length %>): </h3>
+			<% elsif @all_comments.length == 0 %>
+				<h3>Be the First to Comment!</h3>
+			<% end %>
+			<ol class="comment-ol">
+				<% @all_comments.each do |single_comment| %>
+					<h4><% @comment_user = commentUser(single_comment) %>
+					<li><%= single_comment.created_at.to_formatted_s(:long_ordinal) %><br>
+						<strong>by <%= @comment_user.first_name %></strong><br>
+						<%= single_comment.body %></li><br></h4>
+				<% end %>
+			</ol>
 		</div>
-		<br><br>
-	<%end%>
-	<h4><%= @post.body %></h4>
-	<br>
-	<br>
-	<% if signed_in? %>
-		<%= form_for @comment, url: comments_path, method: :post do |f| %>
-			<div class="row">
-				<div class="col-md-8">
-					<%= f.text_field :body, placeholder: "Comment", required: true, class: "form-control" %><br>
-				</div>
-				<div class="col-md-4">
-					<%= f.submit "Leave a Comment", class: "btn btn-primary" %>
-				</div>
-			</div>
-			<%= f.hidden_field :user_id, value: @current_user.id %>
-			<%= f.hidden_field :post_id, value: @post.id %>
-		<% end %>
-		<br>
-	<% end %>
-	<% if @all_comments.length > 1 %>
-		<h3>Comments (<%= @all_comments.length %>): </h3>
-	<% elsif @all_comments.length == 1 %>
-		<h3>Comment (<%= @all_comments.length %>): </h3>
-	<% elsif @all_comments.length == 0 %>
-		<h3>Be the First to Comment!</h3>
-	<% end %>
-	<ol class="comment-ol">
-		<% @all_comments.each do |single_comment| %>
-			<h4><% @comment_user = commentUser(single_comment) %>
-			<li><%= single_comment.created_at.to_formatted_s(:long_ordinal) %><br>
-				<strong>by <%= @comment_user.first_name %></strong><br>
-				<%= single_comment.body %></li><br></h4>
-		<% end %>
-	</ol>
-</div>
-
+	</div>
+</body>
