@@ -1,27 +1,32 @@
 <div class="container">
-	<% if signed_in? %>
-		<h1>Your Profile</h1>
-	<% else %>
-		<h1><%= @user.first_name %>'s Profile</h1>
-	<% end %>
+	<div class="text-center">
+		<% if signed_in? %>
+			<h1>Your Profile</h1>
+		<% else %>
+			<h1><%= @user.first_name %>'s Profile</h1>
+		<% end %>
 	<div>
-		<div class="user-image"><%= image_tag("vista.jpeg", :alt => "scenic vista") %></div>
+		<div class="user-image img-responsive "><%= image_tag("vista.jpeg", :alt => "scenic vista", :class => "center-block") %></div>
 		<% if signed_in? %>
 			<div class="lead welcome-user">Welcome, <%= @user.first_name %>! </div>
 		<% end %>
 	</div>
-	<div class="clear"></div>
+</div>
+	
+	<div class="text-center">
+		<% if signed_in? %>
+			<h4>You signed up on <%= @user.created_at.to_formatted_s(:long_ordinal) %>.<br>
+			Your home city is  <%= @city.name %>.</h4>
+			<h4><%= link_to "Update Profile", edit_user_path%><br><br>
+			<%= link_to "Add a post", root_path%></h4>
+		<% else %>
+			<h4><%= @user.first_name %> signed up on <%= @user.created_at.to_formatted_s(:long_ordinal) %>.<br>
+				<%= @user.first_name %>'s home city is  <%= @city.name %>.</h4>
+		<% end %>
+	</div> 
+	<hr class="small">
 	<br>
-	<% if signed_in? %>
-		<h4>You signed up on <%= @user.created_at.to_formatted_s(:long_ordinal) %>.<br>
-		Your home city is  <%= @city.name %>.</h4>
-		<h3><%= link_to "Update Profile", edit_user_path%><br><br>
-		<%= link_to "Add a post", root_path%></h3>
-	<% else %>
-		<h4><%= @user.first_name %> signed up on <%= @user.created_at.to_formatted_s(:long_ordinal) %>.<br>
-			<%= @user.first_name %>'s home city is  <%= @city.name %>.</h4>
-	<% end %>
-	<div>
+	<div class="text-center">
 		<% if signed_in? %>
 			<h2> All of your posts (<%=@posts.length%>): </h2>
 		<% else %>
@@ -32,7 +37,7 @@
 		<% end %>
 	</div>
 	<br>
-	<div>
+	<div class="text-center">
 		<% if signed_in? %>
 			<h2> All of your comments (<%= @comments.length %>): </h2>
 		<% else %>
