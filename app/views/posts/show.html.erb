@@ -11,13 +11,15 @@
 		<%= button_to "Delete Post", city_post_path, method: :delete, data: {confirm: "Are you sure?"} %>
 	<%end%>
 	<br>
-	<%= form_for @comment, url: comments_path, method: :post do |f| %>
-		<%= f.text_field :body, placeholder: "Comment", required: true %><br>
-		<%= f.submit "Create Comment" %>
-		<%= f.hidden_field :user_id, value: @current_user.id %>
-		<%= f.hidden_field :post_id, value: @post.id %>
+	<% if signed_in? %>
+		<%= form_for @comment, url: comments_path, method: :post do |f| %>
+			<%= f.text_field :body, placeholder: "Comment", required: true %><br>
+			<%= f.submit "Create Comment" %>
+			<%= f.hidden_field :user_id, value: @current_user.id %>
+			<%= f.hidden_field :post_id, value: @post.id %>
+		<% end %>
+		<br>
 	<% end %>
-	<br>
 	<% if @all_comments.length > 1 %>
 		<h2>Comments (<%= @all_comments.length %>): </h2>
 	<% elsif @all_comments.length == 1 %>
@@ -27,7 +29,9 @@
 	<% end %>
 	<ol>
 		<% @all_comments.each do |single_comment| %>
-			<li><%= single_comment.created_at %><br>
+			<% @comment_user = commentUser(single_comment) %>
+			<li><%= single_comment.created_at.to_formatted_s(:long_ordinal) %><br>
+				<strong>by <%= @comment_user.first_name %></strong><br>
 				<%= single_comment.body %></li><br>
 		<% end %>
 	</ol>
