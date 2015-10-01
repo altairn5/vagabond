@@ -22,9 +22,23 @@ module SessionsHelper
 		end
 	end
 
+	def correct_user(post)
+		if @current_user.id == post.user_id
+			return true
+		else
+			return false
+		end
+	end
+
 	def logout
 		@current_user = session[:user_id]= nil
 	end
 	
+	def if_right_user
+	  @current_user = exactUser
+	  if @current_user = !@current_user
+	    redirect_to "/sign_in"
+	  end  
+	end
 	
 end
