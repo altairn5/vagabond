@@ -31,6 +31,8 @@ class PostsController < ApplicationController
     # this current user accessing this site
     @current_user = current_user
 
+    @comment = Comment.new
+    @all_comments = Comment.all.where(:post_id => @post.id)
   end
 
   def create
