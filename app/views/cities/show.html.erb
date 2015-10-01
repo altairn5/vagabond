@@ -1,4 +1,5 @@
-<body class="sanFran"
+<body class="cityPostPage sanFran"
+
 <header class="intro-header">
 	<div class="container">
 		
@@ -8,16 +9,12 @@
 					<h1>Welcome to <%= @city.name %>! </h1>
 					<hr class="small">
                     <span class="subheading">Tell us what you think <%= button_to "Create Post", new_city_post_path(@city.id), method: :get %></span>
-                </div>
+                </div> <br>
+         		<%= image_tag("#{@city.id}.jpg") %>
             </div>
         </div>
-    </div>
 </header>	
-<%= image_tag("#{@city.id}.jpg") %>
 
-			
-<body class="cityPostPage"
-<div class="container">
     <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="post-preview">
