@@ -1,17 +1,42 @@
-<div class="container">
-<h1>Welcome to <%= @city.name %>! </h1>
+<body class="sanFran"
+<header class="intro-header">
+	<div class="container">
+		
+		<div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="site-heading">
+					<h1>Welcome to <%= @city.name %>! </h1>
+					<hr class="small">
+                    <span class="subheading">Tell us what you think <%= button_to "Create Post", new_city_post_path(@city.id), method: :get %></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>	
 <%= image_tag("#{@city.id}.jpg") %>
-<h3>Posts</h3>
-<%= button_to "Create Post", new_city_post_path(@city.id), method: :get %>
-	<% @allPosts.each do |post| %>
-		<h5> <%= image_tag("vista.jpeg", :alt => "scenic vista") %> <%= link_to post.title, city_post_path(@city.id, post.id) %> <br>
-			<h4> Posted <%= time_ago_in_words(relative_time(post)) %> ago! </h4>
-			<%= truncate(post.body, length: @length) %>
-			<% if truncate?(post.body) %>
-				<%= link_to "Read More", city_post_path(@city.id, post.id) %>
-			<% end %>
-			</h5>
-			<br><br>
-	<% end %>
 
+			
+<body class="cityPostPage"
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-preview">
+				<% @allPosts.each do |post| %>
+					<h5 class="post-title postPage"> <%= image_tag("vista.jpeg", :alt => "scenic vista") %> <%= link_to post.title, city_post_path(@city.id, post.id) %> 
+					</h5>
+					<h4 class="post-subtitle postPage">   Posted <%= time_ago_in_words(relative_time(post)) %> ago!</h4> <br>
+			
+					<p class="postBody post-meta"><%= truncate(post.body, length: @length) %>
+						<% if truncate?(post.body) %>
+							<%= link_to "Read More", city_post_path(@city.id, post.id) %>
+					</p>
+						<% end %>
+						<hr class="small">
+						<br><br>
+				<% end %>
+				 
+			</div>
+		</div>
+	</div>
 </div>
+</body>
