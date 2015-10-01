@@ -1,4 +1,4 @@
-<body class="cityPostPage sanFran"
+<body class="cityPostPage sanFran">
 
 <header class="intro-header">
 	<div class="container">
@@ -13,15 +13,12 @@
                     	<span class="subheading">Tell us what you think <%= button_to "Create Post", new_city_post_path(@city.id), method: :get %></span>
                     <% end %>
                 </div>
+                </div> <br>
+
+         		<%= image_tag("#{@city.id}.jpg") %>
 
             </div>
-        </div>
-</header>	
-
-<br>
-<%= image_tag("#{@city.id}.jpg") %>
-
-
+</header>
     <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="post-preview">
