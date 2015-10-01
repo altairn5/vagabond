@@ -18,7 +18,13 @@
 		<%= f.hidden_field :post_id, value: @post.id %>
 	<% end %>
 	<br>
-	<h2>Comments (<%=@all_comments.length %>): </h2>
+	<% if @all_comments.length > 1 %>
+		<h2>Comments (<%= @all_comments.length %>): </h2>
+	<% elsif @all_comments.length == 1 %>
+		<h2>Comment (<%= @all_comments.length %>): </h2>
+	<% elsif @all_comments.length == 0 %>
+		<h2>Be the First to Comment!</h2>
+	<% end %>
 	<ol>
 		<% @all_comments.each do |single_comment| %>
 			<li><%= single_comment.created_at %><br>
