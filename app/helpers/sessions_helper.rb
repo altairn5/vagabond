@@ -23,8 +23,10 @@ module SessionsHelper
 	end
 
 	def correct_user(post)
-		if @current_user.id == post.user_id
-			return true
+		if signed_in?
+			if @current_user.id == post.user_id
+				return true
+			end
 		else
 			return false
 		end
