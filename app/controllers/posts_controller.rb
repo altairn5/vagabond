@@ -26,6 +26,12 @@ class PostsController < ApplicationController
     # this current user accessing this site
     @current_user = current_user
 
+    @body_post = @post.body
+
+
+    AlchemyAPI.key = "d3f607d969d5a875bb1e2e20528b67328b670b0b"
+    results = AlchemyAPI.search(:keyword_extraction, text: @body_post, maxRetrieve: 5)
+    @results = results
   end
 
   def create
@@ -65,6 +71,7 @@ class PostsController < ApplicationController
 
   def index
   end
+ 
 
   private
   def post_params

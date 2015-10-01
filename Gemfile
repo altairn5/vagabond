@@ -34,6 +34,11 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
+#Alchemy API gem
+gem 'alchemy-api-rb', :require => 'alchemy_api'
+# typhoeus
+gem "typhoeus"
+gem 'dotenv-rails', :groups => [:development, :test]
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

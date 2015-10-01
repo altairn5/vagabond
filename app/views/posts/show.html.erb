@@ -10,5 +10,12 @@
 		<%= button_to "Edit Post", edit_city_post_path, method: :get %>
 		<%= button_to "Delete Post", city_post_path, method: :delete, data: {confirm: "Are you sure?"} %>
 		<%end%>
+	
+		<% @results.each do |res|%>
+		<!-- <div class = "btn btn-default"> -->
+		<%=button_to res["text"], city_post_path(@city.id, @post.id), method: :get %>
+		<!-- </div> -->
+		<%end%>
+	
 </div>
 

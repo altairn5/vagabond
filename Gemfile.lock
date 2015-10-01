@@ -36,6 +36,9 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    alchemy-api-rb (0.5.4)
+      excon (~> 0.28)
+      faraday (~> 0.9.0)
     arel (6.0.3)
     autoprefixer-rails (6.0.3)
       execjs
@@ -57,10 +60,20 @@ GEM
       execjs
     coffee-script-source (1.9.1.1)
     debug_inspector (0.0.2)
+    dotenv (2.0.2)
+    dotenv-rails (2.0.2)
+      dotenv (= 2.0.2)
+      railties (~> 4.0)
     dynamic_form (1.1.4)
     erubis (2.7.0)
+    ethon (0.8.0)
+      ffi (>= 1.3.0)
+    excon (0.45.4)
     execjs (2.6.0)
+    faraday (0.9.1)
+      multipart-post (>= 1.2, < 3)
     ffaker (2.1.0)
+    ffi (1.9.10)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     i18n (0.7.0)
@@ -81,6 +94,7 @@ GEM
     mini_portile (0.6.2)
     minitest (5.8.1)
     multi_json (1.11.2)
+    multipart-post (2.0.0)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     pg (0.18.3)
@@ -142,6 +156,8 @@ GEM
     tilt (2.0.1)
     turbolinks (2.5.3)
       coffee-rails
+    typhoeus (0.8.0)
+      ethon (>= 0.8.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (2.7.2)
@@ -157,10 +173,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  alchemy-api-rb
   bcrypt (~> 3.1.7)
   bootstrap-sass (~> 3.3.5.1)
   byebug
   coffee-rails (~> 4.1.0)
+  dotenv-rails
   dynamic_form
   ffaker (~> 2.1.0)
   jbuilder (~> 2.0)
@@ -172,6 +190,7 @@ DEPENDENCIES
   sdoc (~> 0.4.0)
   spring
   turbolinks
+  typhoeus
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
 
