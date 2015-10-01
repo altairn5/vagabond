@@ -2,8 +2,8 @@
 	<div class="container">
 		<div class="postPage">
 			<h1> <%= @post.title %> </h1>
-			<h2>by <%= link_to @user.first_name, user_path(@user.id) %> <small>in <%= @city.name %></small> </h2><br>
-			<% if signed_in? %>
+			<h2>by <%= link_to @user.first_name, user_path(@user.id) %> <small>in <%= link_to @city.name, city_path(@city.id) %></small> </h2><br>
+			<% if correct_user(@post) %>
 				<div class="post-buttons">
 					<%= button_to "Edit Post", edit_city_post_path, method: :get, class: "btn btn-primary" %>
 					<%= button_to "Delete Post", city_post_path, method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-primary" %>

@@ -2,14 +2,6 @@ class PostsController < ApplicationController
   
   before_action :if_right_user, except: [:show]
 
-  def if_right_user
-    @current_user = exactUser
-    
-    if @current_user = !@current_user
-      redirect_to "/sign_in"
-    end  
-  end
-
   def new
     @post = Post.new
     @current_user = current_user
@@ -50,6 +42,8 @@ class PostsController < ApplicationController
     @post = Post.find_by_id(params[:id])
     @post.destroy
     @city = City.find_by_id(params[:city_id])
+    @all_comments = Comment.all.where(:post_id => @post.id)
+    @all_comments.destroy
     
     redirect_to "/cities/#{@city.id}"
   end
