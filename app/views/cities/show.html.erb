@@ -5,19 +5,20 @@
 		
 		<div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
+                <div class="site-heading text-center">
 					<h1>Welcome to <%= @city.name %>! </h1>
+					<%= image_tag("#{@city.id}.jpg") %>
 					<hr class="small">
 
 					<% if signed_in? %>
                     	<span class="subheading">Tell us what you think <%= button_to "Create Post", new_city_post_path(@city.id), method: :get %></span>
                     <% end %>
                 </div> <br>
-                <%= image_tag("#{@city.id}.jpg") %>
+                
             </div> <br>
         </div>
 </header>
-<br>
+		<br>
     <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="post-preview">
@@ -38,5 +39,5 @@
 			</div>
 		</div>
 	</div>
-</div>
+	</div>
 </body>
