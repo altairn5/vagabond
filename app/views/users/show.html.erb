@@ -1,8 +1,9 @@
 <div class="container">
 	<h1>Your Account</h1>
-
-	<div class="user-image"><%= image_tag("vista.jpeg", :alt => "scenic vista") %></div>
-	<p class="lead">Welcome, <%= @user.first_name %>! </p>
+	<div>
+		<div class="user-image"><%= image_tag("vista.jpeg", :alt => "scenic vista") %></div>
+		<div class="lead welcome-user">Welcome, <%= @user.first_name %>! </div>
+	</div>
 	<div class="clear"></div>
 	<br>
 	<p>You signed up on <%= @user.created_at.to_formatted_s(:long_ordinal) %> </p>
@@ -14,12 +15,11 @@
 		<% @posts.each do |post| %>
 			<h3> <%= link_to post.title, city_post_path(post.city_id, post.id) %> </h3>
 		<% end %>
-		<h2> All of your comments (<%= @comments.length %>): </h2>
-		<ol>	
+		<h3> All of your comments (<%= @comments.length %>): </h3>
+		<ol class="comment-ol">	
 			<% @comments.each do |comment|%>
-				<li><%= comment.created_at %><br>
-				<h4>In post title "<%= comment.post.title %>", you commented:</h4>
-				 <br>
+				<li><%= comment.created_at.to_formatted_s(:long_ordinal) %><br>
+				<p><strong>In post title <em>"<%= comment.post.title %>"</em>, you commented:</strong></p>
 				<%= comment.body%><br>
 				</li><br>
 
