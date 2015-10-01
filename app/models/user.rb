@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
 	belongs_to :city
 
 	has_many :posts
+	has_many :comments
 
 	validates :first_name, :last_name, :email, :password_digest, presence: true, confirmation: true
 	validates_uniqueness_of :email

@@ -9,6 +9,21 @@
 	<% if @current_user == @user %>
 		<%= button_to "Edit Post", edit_city_post_path, method: :get %>
 		<%= button_to "Delete Post", city_post_path, method: :delete, data: {confirm: "Are you sure?"} %>
-		<%end%>
+	<%end%>
+	<br>
+	<%= form_for @comment, url: comments_path, method: :post do |f| %>
+		<%= f.text_field :body, placeholder: "Comment", required: true %><br>
+		<%= f.submit "Create Comment" %>
+		<%= f.hidden_field :user_id, value: @current_user.id %>
+		<%= f.hidden_field :post_id, value: @post.id %>
+	<% end %>
+	<br>
+	<h2>Comments (<%=@all_comments.length %>): </h2>
+	<ol>
+		<% @all_comments.each do |single_comment| %>
+			<li><%= single_comment.created_at %><br>
+				<%= single_comment.body %></li><br>
+		<% end %>
+	</ol>
 </div>
 
