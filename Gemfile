@@ -18,6 +18,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'ffaker', '~> 2.1.0'
 # dynamicform for generating error messages
 gem 'dynamic_form'
+gem 'alchemy-api-rb', :require => 'alchemy_api'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

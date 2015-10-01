@@ -12,6 +12,9 @@
 			<%end%>
 			<h4><%= @post.body %></h4>
 			<br>
+			<% @results.each do |res|%>
+				<%=button_to res["text"], city_post_path(@city.id, @post.id), method: :get %>
+			<%end%>
 			<br>
 			<% if signed_in? %>
 				<%= form_for @comment, url: comments_path, method: :post do |f| %>
