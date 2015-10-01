@@ -14,7 +14,6 @@ class CitiesController < ApplicationController
     @city = City.find(params[:id])
     @allPosts = Post.order(created_at: :desc).where(["city_id = #{@city.id}"]).limit(10)
     @length = 1000
-
   end
 
   def destroy

@@ -1,25 +1,26 @@
-<h1>Edit your profile</h1>
+<div class="container">
+	<h1>Edit your profile</h1>
 
-<%= form_for @user do |f| %>
-	<div>
-		<%= f.text_field :first_name, placeholder: "First Name" %>
-	</div>
-	<div>
-		<%= f.text_field :last_name, placeholder: "Last Name" %>
-	</div>
-	<div>
-		<%= f.text_field :email, placeholder: "Email" %>
-	</div>
-	<div>
-		<%= f.password_field :password, placeholder: "Password" %>
-	</div>
-	<div>
-		<%= f.password_field :password_confirmation, placeholder: "Confirm Password" %>
-	</div>
-	<div>
-		<%= f.select :city_id, [['San Francisco', 1], ['London', 2], ['Gibraltar', 3]] %>
-	</div>
-	<%= f.submit "Edit" %>
-<% end %>
-
+	<%= form_for @user do |f| %>
+		<div>
+			<%= f.text_field :first_name, placeholder: "First Name" %>
+		</div>
+		<div>
+			<%= f.text_field :last_name, placeholder: "Last Name" %>
+		</div>
+		<div>
+			<%= f.text_field :email, placeholder: "Email" %>
+		</div>
+		<div>
+			<%= f.password_field :password, placeholder: "Password" %>
+		</div>
+		<div>
+			<%= f.password_field :password_confirmation, placeholder: "Confirm Password" %>
+		</div>
+		<div>
+			<%= f.select :city_id, [['San Francisco', 1], ['London', 2], ['Gibraltar', 3]] %>
+		</div>
+		<%= f.submit "Edit" %>
+	<% end %>
+</div>
 

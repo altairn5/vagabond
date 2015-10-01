@@ -10,19 +10,13 @@ Rails.application.routes.draw do
 
   get "/sign_up", to: "users#new"
 
-  # get "/city/:city_id/posts/new", to: "posts#new"
-
-  # post "/city/:city_id/posts/", to: "posts#create"
-
-  # get "/city/:city_id/posts/:id", to: "posts#show", as: "city_posts"
+  post '/comments', to: "comments#create"
 
   resources :cities do
   	resources :posts
   end
 
-  resources :users do
-	resources :posts ,only: :show
-  end
+  resources :users
 
 end
 
