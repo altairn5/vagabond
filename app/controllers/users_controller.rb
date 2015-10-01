@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :logged_in?, only: [:show]
+  before_action :logged_in?, only: [:edit, :update]
 
   def index
   end
@@ -24,10 +24,6 @@ class UsersController < ApplicationController
     @posts = @user.posts
     @city = City.find_by_id(@user.city_id)
     @comments = @user.comments
-   
-   
-  
-
   end
 
   def destroy

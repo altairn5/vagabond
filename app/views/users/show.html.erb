@@ -1,28 +1,53 @@
 <div class="container">
-	<h1>Your Account</h1>
+	<% if signed_in? %>
+		<h1>Your Profile</h1>
+	<% else %>
+		<h1><%= @user.first_name %>'s Profile</h1>
+	<% end %>
 	<div>
 		<div class="user-image"><%= image_tag("vista.jpeg", :alt => "scenic vista") %></div>
-		<div class="lead welcome-user">Welcome, <%= @user.first_name %>! </div>
+		<% if signed_in? %>
+			<div class="lead welcome-user">Welcome, <%= @user.first_name %>! </div>
+		<% end %>
 	</div>
 	<div class="clear"></div>
 	<br>
-	<p>You signed up on <%= @user.created_at.to_formatted_s(:long_ordinal) %> </p>
-	<p>Your default city is  <%= @city.name %>.  </p>
-	<p><%= link_to "Add a post", root_path%></p>
-	<%= link_to "Update Profile", edit_user_path%><br><br>
+	<% if signed_in? %>
+		<h4>You signed up on <%= @user.created_at.to_formatted_s(:long_ordinal) %>.<br>
+		Your home city is  <%= @city.name %>.</h4>
+		<h3><%= link_to "Update Profile", edit_user_path%><br><br>
+		<%= link_to "Add a post", root_path%></h3>
+	<% else %>
+		<h4><%= @user.first_name %> signed up on <%= @user.created_at.to_formatted_s(:long_ordinal) %>.<br>
+			<%= @user.first_name %>'s home city is  <%= @city.name %>.</h4>
+	<% end %>
 	<div>
-		<h2> All of your posts (<%=@posts.length%>): </h2>
+		<% if signed_in? %>
+			<h2> All of your posts (<%=@posts.length%>): </h2>
+		<% else %>
+			<h2> All of <%= @user.first_name %>'s' posts (<%=@posts.length%>): </h2>
+		<% end %>
 		<% @posts.each do |post| %>
 			<h3> <%= link_to post.title, city_post_path(post.city_id, post.id) %> </h3>
 		<% end %>
-		<h3> All of your comments (<%= @comments.length %>): </h3>
+	</div>
+	<br>
+	<div>
+		<% if signed_in? %>
+			<h2> All of your comments (<%= @comments.length %>): </h2>
+		<% else %>
+			<h2> All of <%= @user.first_name %>'s comments (<%= @comments.length %>): </h2>
+		<% end %>
 		<ol class="comment-ol">	
 			<% @comments.each do |comment|%>
-				<li><%= comment.created_at.to_formatted_s(:long_ordinal) %><br>
-				<p><strong>In post title <em>"<%= comment.post.title %>"</em>, you commented:</strong></p>
-				<%= comment.body%><br>
+				<h4><li><%= comment.created_at.to_formatted_s(:long_ordinal) %><br>
+				<% if signed_in? %>
+					<strong>In post title <em>"<%= comment.post.title %>"</em>, you commented:</strong><br>
+				<% else %>
+					<strong>In post title <em>"<%= comment.post.title %>"</em>, <%= @user.first_name %> commented:</strong><br>
+				<% end %>
+				<%= comment.body%><br></h4>
 				</li><br>
-
 			<%end%>
 		</ol>
 	</div>
