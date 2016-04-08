@@ -2,14 +2,6 @@ class PostsController < ApplicationController
   
   before_action :if_right_user, except: [:show]
 
-  def if_right_user
-    @current_user = exactUser
-    
-    if @current_user = !@current_user
-      redirect_to "/sign_in"
-    end  
-  end
-
   def new
     @post = Post.new
     @current_user = current_user
